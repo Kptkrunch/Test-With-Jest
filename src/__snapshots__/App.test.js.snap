@@ -2,8 +2,11 @@
 
 exports[`App Should correctly render App in debug mode 1`] = `
 <div>
-  <h1>
-    Hello World
+  <h1
+    className="btn-add"
+    onClick={[Function]}
+  >
+    Gift Giver
   </h1>
 </div>
 `;

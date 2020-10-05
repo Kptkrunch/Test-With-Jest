@@ -1,13 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
-const App = () => {
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            gifts: []
+        }
+        this.addGift = this.addGift.bind(this);
+    }
 
-    return (
+    addGift() {
+        const { gifts } = this.state;
+        const ids = this.state.gifts.map( gift => gift.id );
+        const max_id = ids.length > 0 ? Math.max(...ids) : 0;
+        gifts.push({ id: max_id + 1 })
+        this.setState({ gifts })
+    }
 
-        <div>
-            <h1>Hello World</h1>
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <h1 className="btn-add" onClick={this.addGift}>Gift Giver</h1>
+            </div>
+        )
+    }
 }
 
 export default App;
