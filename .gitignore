@@ -1,6 +1,9 @@
 # All node modules
 node_modules
 
+# Coversage reports
+coverage
+
 # Visual Studio 2015 user specific files
 .vs/
 

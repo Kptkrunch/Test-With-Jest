@@ -2,11 +2,20 @@
 
 exports[`App Should correctly render App in debug mode 1`] = `
 <div>
-  <h1
-    className="btn-add"
-    onClick={[Function]}
-  >
+  <h1>
     Gift Giver
   </h1>
+  <div
+    className="gift-list"
+  />
+  <Button
+    active={false}
+    className="btn-add"
+    disabled={false}
+    onClick={[Function]}
+    variant="primary"
+  >
+    Add Gift
+  </Button>
 </div>
 `;

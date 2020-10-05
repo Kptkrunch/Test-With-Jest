@@ -8,12 +8,28 @@ describe('App', () => {
         expect(app).toMatchSnapshot();
     });
 
-    it('Initializes the state with and empty list of gifts', () => {
+    it('Initializes the state with an empty list of gifts', () => {
         expect(app.state().gifts).toEqual([]);
     })
 
-    it('Adds a new gift to the gifts state', () => {
-        app.find('.btn-add').simulate('click');
-        expect(app.state().gifts).toEqual([{ id: 1 }]);
+    describe('When clicking the "Add Gift" button', () => {
+        beforeEach(() => {
+            app.find('.btn-add').simulate('click');
+        })
+        
+        afterEach(() => {
+            app.setState({ gifts: []});
+        })
+        it('Adds a new gift to the gifts state', () => {
+            expect(app.state().gifts).toEqual([{ id: 1 }]);
+        })
+    
+        it('Adds a new new gift to the rendered gift list', () => {
+            expect(app.find('.gift-list').children().length).toEqual(1);
+        })
+
+        it('Creates a "Gift" component', () => {
+            expect(app.find('Gift').exists()).toBe(true);
+        })
     })
 });
