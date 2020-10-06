@@ -13,6 +13,7 @@ describe('App', () => {
     })
 
     describe('When clicking the "Add Gift" button', () => {
+
         beforeEach(() => {
             app.find('.btn-add').simulate('click');
         })
@@ -30,6 +31,16 @@ describe('App', () => {
 
         it('Creates a "Gift" component', () => {
             expect(app.find('Gift').exists()).toBe(true);
+        })
+    })
+
+    describe('and the user wants to be able to remove the added gift', () => {
+        beforeEach(() => {
+            app.instance().removeGift(1);
+        })
+
+        it('removes the gift from "state"', () => {
+            expect(app.state().gifts).toEqual([]);
         })
     })
 });
